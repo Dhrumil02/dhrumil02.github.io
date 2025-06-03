@@ -6,15 +6,15 @@ class ContactSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(24),
-      child: const Column(
+      padding: const EdgeInsets.all(32),
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Contact Me", style: TextStyle(fontSize: 28)),
-          SizedBox(height: 16),
-          Text("📧 your.email@example.com"),
-          Text("🔗 linkedin.com/in/yourprofile"),
-          Text("💻 github.com/yourusername"),
+          Text('Contact Me', style: Theme.of(context).textTheme.headlineLarge),
+          const SizedBox(height: 12),
+          const Text('Email: your.email@example.com'),
+          const Text('GitHub: github.com/yourusername'),
+          const Text('LinkedIn: linkedin.com/in/yourprofile'),
         ],
       ),
     );

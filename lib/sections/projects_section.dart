@@ -6,23 +6,42 @@ class ProjectsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(24),
+      padding: const EdgeInsets.all(32),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text("Projects", style: TextStyle(fontSize: 28)),
-          const SizedBox(height: 16),
-          _projectTile("E-Commerce App", "A Flutter app with cart & payment features."),
-          _projectTile("Live Tracking", "Map-based real-time delivery tracking."),
+          Text('Projects', style: Theme.of(context).textTheme.headlineLarge),
+          const SizedBox(height: 12),
+          Wrap(
+            spacing: 16,
+            runSpacing: 16,
+            children: [
+              projectCard("E-commerce App", "A Flutter app with payment & cart features"),
+              projectCard("Chat App", "Real-time messaging with Firebase"),
+              projectCard("Tracking App", "Live location updates using Google Maps"),
+            ],
+          ),
         ],
       ),
     );
   }
 
-  Widget _projectTile(String title, String desc) {
-    return ListTile(
-      title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
-      subtitle: Text(desc),
+  Widget projectCard(String title, String desc) {
+    return Container(
+      width: 300,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.grey[200],
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
+          const SizedBox(height: 8),
+          Text(desc),
+        ],
+      ),
     );
   }
 }
